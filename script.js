@@ -1,32 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- BANK SOAL (TELAH DIPERBAIKI) ---
+    // --- BANK SOAL (TELAH DIPERBAIKI KUNCI NYA) ---
     const questionBank = {
         dhamir: {
             title: "تغيير الضمائر (الفعل الماضي والمضارع)",
             questions: [
-                // Huwa (هو)
                 { question: "هو ____ إلى المدرسة كل يوم. (فعل مضارع من 'ذهب')", correctAnswer: "يَذْهَبُ" },
                 { question: "هو ____ التفاحة أمس. (فعل ماضي من 'أكل')", correctAnswer: "أَكَلَ" },
                 { question: "هو ____ في المسابقة وفاز. (فعل ماضي من 'شارك')", correctAnswer: "شَارَكَ" },
-                // Hiya (هي)
                 { question: "هي ____ الدرس جيداً. (فعل مضارع من 'تفهم')", correctAnswer: "تَفْهَمُ" },
                 { question: "هي ____ النافذة. (فعل ماضي من 'فتحت')", correctAnswer: "فَتَحَتْ" },
                 { question: "هي ____ رسالة إلى صديقتها. (فعل ماضي من 'كتبت')", correctAnswer: "كَتَبَتْ" },
-                // Anta (أنت)
                 { question: "أنت ____ باللغة العربية بطلاقة. (فعل مضارع من 'تتكلم')", correctAnswer: "تَتَكَلَّمُ" },
                 { question: "أنت ____ الواجب المنزلي. (فعل ماضي من 'أكملت')", correctAnswer: "أَكْمَلْتَ" },
                 { question: "أنت ____ صديقاً مخلصاً. (فعل ماضي من 'كنت')", correctAnswer: "كُنْتَ" },
-                // Anti (أنتِ)
                 { question: "أنتِ ____ الحديقة كل صباح. (فعل مضارع من 'تذهبين')", correctAnswer: "تَذْهَبِينَ" },
                 { question: "أنتِ ____ القصة بتركيز. (فعل ماضي من 'قرأت')", correctAnswer: "قَرَأْتِ" },
                 { question: "أنتِ ____ طعاماً لذيذاً. (فعل ماضي من 'طبخت')", correctAnswer: "طَبَخْتِ" },
-                // Ana (أنا)
                 { question: "أنا ____ في مدينة الرياض. (فعل مضارع من 'أعيش')", correctAnswer: "أَعِيشُ" },
                 { question: "أنا ____ الفيلم أمس. (فعل ماضي من 'شاهدت')", correctAnswer: "شَاهَدْتُ" },
                 { question: "أنا ____ إلى المسجد للصلاة. (فعل مضارع من 'أذهب')", correctAnswer: "أَذْهَبُ" }
             ]
         },
-        naatManut: {
+        // PERBAIKAN: Kunci diubah dari 'naatManut' menjadi 'naat-manut'
+        'naat-manut': {
             title: "النعت والمنعوت",
             questions: [
                 { question: "اشتريت كتاباً ____.", correctAnswer: "جَدِيداً" },
@@ -46,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 { question: "المسلمون ____ متحدون.", correctAnswer: "الأَخْيَارُ" }
             ]
         },
-        // PERUBAHAN: Soal Mudhof-Mudhof Ilaih dalam bentuk kalimat
         mudhof: {
             title: "المضاف والمضاف إليه",
             questions: [
@@ -165,7 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('answer-input').focus();
     }
 
-    // --- FUNGSI YANG TELAH DIPERBAIKI ---
     function checkAnswer() {
         const userAnswer = document.getElementById('answer-input').value.trim();
         const correctAnswer = currentQuestions[currentQuestionIndex].correctAnswer;
@@ -187,7 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
             feedbackArea.textContent = 'أحسنت! إجابة صحيحة.';
             feedbackArea.className = 'correct';
         } else {
-            // PERUBAHAN: Hanya tampilkan "إجابة خاطئة" tanpa jawaban benar
             feedbackArea.textContent = 'إجابة خاطئة.';
             feedbackArea.className = 'incorrect';
         }
