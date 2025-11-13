@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- BANK SOAL (TELAH DIPERBAIKI DAN DIPERIKSA ULANG) ---
+    // --- BANK SOAL ---
     const questionBank = {
         dhamir: {
             title: "تغيير الضمائر (الفعل الماضي والمضارع)",
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- FUNGSI-FUNGSI UTAMA ---
     function startQuiz(topicKey) {
         currentTopic = questionBank[topicKey];
-        currentQuestions = [...currentTopic.questions];
+        currentQuestions = [...currentTopic.questions]; // Salin array
         currentQuestionIndex = 0;
         score = 0;
         userAnswers = [];
@@ -199,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         displayQuestion();
     }
 
+    // --- FUNGSI YANG TELAH DIPERBAIKI ---
     function showResults() {
         quizSection.classList.remove('active');
         resultsSection.classList.add('active');
@@ -211,10 +212,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const isCorrect = answer.userAnswer === answer.correctAnswer;
             const reviewItem = document.createElement('div');
             reviewItem.className = 'answer-item';
+            
+            // PERUBAHAN: Selalu tampilkan jawaban benar untuk setiap soal
             reviewItem.innerHTML = `
                 <p><strong>${index + 1}. ${answer.question.replace('____', '____')}</strong></p>
                 <p>إجابتك: <span class="${isCorrect ? 'correct' : 'incorrect'}">${answer.userAnswer}</span></p>
-                ${!isCorrect ? `<p>الإجابة الصحيحة: <span class="correct">${answer.correctAnswer}</span></p>` : ''}
+                <p>الإجابة الصحيحة: <span class="correct">${answer.correctAnswer}</span></p>
             `;
             answersReview.appendChild(reviewItem);
         });
