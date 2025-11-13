@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- BANK SOAL (TELAH DIPERBAIKI KUNCI NYA) ---
+    // --- BANK SOAL ---
     const questionBank = {
         dhamir: {
             title: "تغيير الضمائر (الفعل الماضي والمضارع)",
@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 { question: "أنا ____ إلى المسجد للصلاة. (فعل مضارع من 'أذهب')", correctAnswer: "أَذْهَبُ" }
             ]
         },
-        // PERBAIKAN: Kunci diubah dari 'naatManut' menjadi 'naat-manut'
         'naat-manut': {
             title: "النعت والمنعوت",
             questions: [
@@ -111,6 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.topic-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const topicKey = btn.dataset.topic;
+            // --- TULISAN INI AKAN MUNCUL DI CONSOLE ---
+            console.log("Tombol diklik! Topik:", topicKey); 
             startQuiz(topicKey);
         });
     });
@@ -124,6 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- FUNGSI-FUNGSI UTAMA ---
     function startQuiz(topicKey) {
+        // --- TULISAN INI JUGA AKAN MUNCUL DI CONSOLE ---
+        console.log("Fungsi startQuiz dipanggil dengan topik:", topicKey);
+        console.log("Data soal ditemukan:", questionBank[topicKey]);
+
         currentTopic = questionBank[topicKey];
         currentQuestions = [...currentTopic.questions];
         currentQuestionIndex = 0;
