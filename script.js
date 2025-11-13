@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- BANK SOAL ---
+    // --- BANK SOAL (TELAH DIPERBAIKI) ---
     const questionBank = {
         dhamir: {
             title: "تغيير الضمائر (الفعل الماضي والمضارع)",
@@ -46,24 +46,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 { question: "المسلمون ____ متحدون.", correctAnswer: "الأَخْيَارُ" }
             ]
         },
+        // PERUBAHAN: Soal Mudhof-Mudhof Ilaih dalam bentuk kalimat
         mudhof: {
             title: "المضاف والمضاف إليه",
             questions: [
-                { question: "مفتاح ____.", correctAnswer: "الْبَابِ" },
-                { question: "بابُ ____.", correctAnswer: "الْمَدْرَسَةِ" },
-                { question: "قلمُ ____.", correctAnswer: "التِّلْمِيذِ" },
-                { question: "كتابُ ____.", correctAnswer: "الْمُعَلِّمِ" },
-                { question: "سيارةُ ____.", correctAnswer: "أَبِي" },
-                { question: "أمامَ ____.", correctAnswer: "الْبَيْتِ" },
-                { question: "مدينةُ ____.", correctAnswer: "القَاهِرَةِ" },
-                { question: "بابُ ____.", correctAnswer: "صَدِيقِي" },
-                { question: "أوراقُ ____.", correctAnswer: "الطَّلَابِ" },
-                { question: "مديرُ ____.", correctAnswer: "الْمَصْنَعِ" },
-                { question: "نافذةُ ____.", correctAnswer: "الْغُرْفَةِ" },
-                { question: "صوتُ ____.", correctAnswer: "الْمُعَلِّمَةِ" },
-                { question: "مكتبُ ____.", correctAnswer: "الطَّبِيبِ" },
-                { question: "حقيبةُ ____.", correctAnswer: "الطَّالِبَةِ" },
-                { question: "ملعقةُ ____.", correctAnswer: "الْحَسَاءِ" }
+                { question: "وضعتُ مفتاح ____ على الطاولة.", correctAnswer: "الْبَابِ" },
+                { question: "دخلتُ من بابِ ____.", correctAnswer: "الْمَدْرَسَةِ" },
+                { question: "هذا قلمُ ____.", correctAnswer: "التِّلْمِيذِ" },
+                { question: "قرأت كتابُ ____.", correctAnswer: "الْمُعَلِّمِ" },
+                { question: "أصلحتُ سيارةُ ____.", correctAnswer: "أَبِي" },
+                { question: "يقف الحارس أمامَ ____.", correctAnswer: "الْبَيْتِ" },
+                { question: "أسكن في مدينةُ ____.", correctAnswer: "القَاهِرَةِ" },
+                { question: "طرقتُ بابُ ____.", correctAnswer: "صَدِيقِي" },
+                { question: "نظّف الطالبُ أوراقُ ____.", correctAnswer: "الطَّلَابِ" },
+                { question: "ذهبتُ إلى مكتبُ ____.", correctAnswer: "الْمَصْنَعِ" },
+                { question: "فتحتُ نافذةُ ____.", correctAnswer: "الْغُرْفَةِ" },
+                { question: "سمعتُ صوتُ ____.", correctAnswer: "الْمُعَلِّمَةِ" },
+                { question: "زارني مديرُ ____.", correctAnswer: "الطَّبِيبِ" },
+                { question: "أخذتُ حقيبةُ ____.", correctAnswer: "الطَّالِبَةِ" },
+                { question: "استخدمتُ ملعقةُ ____.", correctAnswer: "الْحَسَاءِ" }
             ]
         },
         majhul: {
@@ -129,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- FUNGSI-FUNGSI UTAMA ---
     function startQuiz(topicKey) {
         currentTopic = questionBank[topicKey];
-        currentQuestions = [...currentTopic.questions]; // Salin array
+        currentQuestions = [...currentTopic.questions];
         currentQuestionIndex = 0;
         score = 0;
         userAnswers = [];
@@ -164,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('answer-input').focus();
     }
 
+    // --- FUNGSI YANG TELAH DIPERBAIKI ---
     function checkAnswer() {
         const userAnswer = document.getElementById('answer-input').value.trim();
         const correctAnswer = currentQuestions[currentQuestionIndex].correctAnswer;
@@ -185,7 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
             feedbackArea.textContent = 'أحسنت! إجابة صحيحة.';
             feedbackArea.className = 'correct';
         } else {
-            feedbackArea.innerHTML = `إجابة خاطئة. الإجابة الصحيحة هي: <strong>${correctAnswer}</strong>`;
+            // PERUBAHAN: Hanya tampilkan "إجابة خاطئة" tanpa jawaban benar
+            feedbackArea.textContent = 'إجابة خاطئة.';
             feedbackArea.className = 'incorrect';
         }
         
@@ -199,7 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
         displayQuestion();
     }
 
-    // --- FUNGSI YANG TELAH DIPERBAIKI ---
     function showResults() {
         quizSection.classList.remove('active');
         resultsSection.classList.add('active');
@@ -213,7 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const reviewItem = document.createElement('div');
             reviewItem.className = 'answer-item';
             
-            // PERUBAHAN: Selalu tampilkan jawaban benar untuk setiap soal
             reviewItem.innerHTML = `
                 <p><strong>${index + 1}. ${answer.question.replace('____', '____')}</strong></p>
                 <p>إجابتك: <span class="${isCorrect ? 'correct' : 'incorrect'}">${answer.userAnswer}</span></p>
