@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق القواعد النحوية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>تطبيق القواعد النحوية التفاعلي</h1>
+        <p>مارس مهاراتك في قواعد اللغة العربية</p>
+    </header>
+
+    <main id="app-container">
+        <!-- Menu Utama -->
+        <section id="menu-section" class="active">
+            <h2>اختر المادة</h2>
+            <div class="topic-grid">
+                <button class="topic-btn" data-topic="dhamir">تغيير الضمائر (الفعل الماضي والمضارع)</button>
+                <button class="topic-btn" data-topic="naat-manut">النعت والمنعوت</button>
+                <button class="topic-btn" data-topic="mudhof">المضاف والمضاف إليه</button>
+                <button class="topic-btn" data-topic="majhul">الفعل المعلوم والمجهول</button>
+            </div>
+        </section>
+
+        <!-- Area Kuis -->
+        <section id="quiz-section">
+            <div class="quiz-header">
+                <span id="question-counter">السؤال 1 من 10</span>
+                <span id="topic-title"></span>
+            </div>
+            <div id="question-area"></div>
+            <div id="feedback-area"></div>
+            <div class="quiz-controls">
+                <button id="check-btn" class="control-btn">تحقق من الإجابة</button>
+                <button id="next-btn" class="control-btn" style="display: none;">السؤال التالي</button>
+            </div>
+        </section>
+
+        <!-- Area Hasil -->
+        <section id="results-section">
+            <h2>انتهى الاختبار!</h2>
+            <p id="final-score"></p>
+            <div id="answers-review"></div>
+            <button id="restart-btn" class="control-btn">العودة إلى القائمة</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
